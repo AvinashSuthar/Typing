@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Keyboard from "./Keyboard.js";
 
 const sampleText =
   "High know eye. These hand small know place, a plan group, keep we think because run may long if plan, child he have, even find since follow however.";
@@ -12,14 +13,21 @@ const TypingTest = () => {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [wpm, setWpm] = useState<number>(0);
   const [accuracy, setAccuracy] = useState<number>(100);
+  const [key, setKey] = useState("");
 
   useEffect(() => {
-    if (userInput.length === 1) setStartTime(Date.now()); // Start timer on first keypress
+    // Start timer only on first keypress
+    if (userInput.length === 1 && startTime === null) {
+      setStartTime(Date.now());
+    }
 
     // Calculate WPM
     const wordsTyped = userInput.trim().split(/\s+/).length;
     const elapsedMinutes = startTime ? (Date.now() - startTime) / 60000 : 0;
-    if (elapsedMinutes > 0) setWpm(Math.round(wordsTyped / elapsedMinutes));
+
+    if (elapsedMinutes > 0) {
+      setWpm(Math.round(wordsTyped / elapsedMinutes));
+    }
 
     // Calculate accuracy
     const correctChars = sampleText
@@ -28,21 +36,20 @@ const TypingTest = () => {
 
     setAccuracy(
       userInput.length > 0
-        ? (((correctChars / userInput.length) * 100).toFixed(
-            1
-          ) as unknown as number)
+        ? parseFloat(((correctChars / userInput.length) * 100).toFixed(1))
         : 100
     );
-  }, [userInput, startTime]);
+  }, [userInput]); // Removed startTime from dependency array
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    setKey(e.key);
+
     if (userInput.length === sampleText.length) {
       setComplete(true);
       return;
     }
 
     if (e.key.length > 1 && e.key !== "Backspace") return; // Ignore special keys
-
     if (e.key === "Backspace") {
       setUserInput(userInput.slice(0, -1));
       setCurrentIndex(currentIndex > 0 ? currentIndex - 1 : 0);
@@ -55,11 +62,11 @@ const TypingTest = () => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center   p-5"
+      className="flex flex-col border-none items-center justify-center   p-5"
       tabIndex={0}
       onKeyDown={handleKeyPress}
     >
-      <div className="max-w-2xl w-full p-6 ">
+      <div className="w-[90%] p-6 ">
         {/* Typing Area */}
         <div className="text-gray-700 text-justify  rounded-md  shadow-blue-400 shadow-sm p-3 text-lg font-mono leading-8">
           {sampleText.split("").map((char, index) => {
@@ -88,6 +95,7 @@ const TypingTest = () => {
         </div>
         {complete && <div>Completed</div>}
       </div>
+      <Keyboard keyValue={key} />
     </div>
   );
 };

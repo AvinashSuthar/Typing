@@ -23,6 +23,8 @@
     "packages/*"
   ],
   "dependencies": {
+    "@radix-ui/react-hover-card": "^1.1.6",
+    "qss": "^3.0.0",
     "simplex-noise": "^4.0.3"
   }
 }

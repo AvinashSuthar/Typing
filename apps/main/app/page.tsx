@@ -1,4 +1,5 @@
 import TypingPractice from "@/components/TypingPractice";
+import Keyboard from "@repo/ui/components/Keyboard";
 import Votex from "@repo/ui/components/Votex";
 import TypingTest from "@repo/ui/components/typingArea";
 

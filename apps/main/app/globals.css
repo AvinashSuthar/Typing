@@ -18,3 +18,7 @@
     background: hsl(var(--background));
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
