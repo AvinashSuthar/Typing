@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./Keyboard.css";
-import { LinkPreview } from "./ui/Preview.js";
+import { LinkPreview } from "./ui/Preview";
 
 interface KeyProps {
   keyValue: string;

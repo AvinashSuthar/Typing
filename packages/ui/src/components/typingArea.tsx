@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Keyboard from "./Keyboard.js";
+import Keyboard from "./Keyboard";
 
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
-import { BackgroundBeamsWithCollision } from "./ui/BackgroudBeams.js";
+import { BackgroundBeamsWithCollision } from "./ui/BackgroudBeams";
 // ..
 AOS.init({
   // Global settings:

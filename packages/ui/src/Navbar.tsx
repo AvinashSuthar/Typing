@@ -1,6 +1,6 @@
 import React, { JSX } from "react";
-import { ModeToggle } from "./modeToggle.js";
-import { FloatingNav } from "./components/ui/floatingNav.js";
+import { ModeToggle } from "./modeToggle";
+import { FloatingNav } from "./components/ui/floatingNav";
 
 const Navbar = ({
   signIn, 

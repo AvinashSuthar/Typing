@@ -1,8 +1,8 @@
 import React from "react";
-import { Vortex } from "./ui/Vortex.js";
-import { TextGenerateEffect } from "./ui/TextGenerate.js";
-import { MagicButton } from "../button.js";
-import { ColourfulText } from "./ui/colorfulText.js";
+import { Vortex } from "./ui/Vortex";
+import { TextGenerateEffect } from "./ui/TextGenerate";
+import { MagicButton } from "../button";
+import { ColourfulText } from "./ui/colorfulText";
 
 const Votex = () => {
   return (
