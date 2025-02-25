@@ -1,7 +1,13 @@
 export async function GET() {
-  const baseUrl = "https://typing.avinashsuthar.in"; // Change this to your domain
+  const baseUrl = "https://typing.avinashsuthar.in"; // Replace with your domain
 
-  const staticPages = ["/", "/about", "/contact"];
+  const staticPages = [
+    "/",
+    "/about",
+    "/contact",
+    "/features",
+    "/test-page", // Add all your pages here
+  ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
