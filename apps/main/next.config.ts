@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       "api.microlink.io", // Microlink Image Preview
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

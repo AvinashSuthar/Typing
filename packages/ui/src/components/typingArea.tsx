@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Keyboard from "./Keyboard.js";
-import { TextGenerateEffect } from "./ui/TextGenerate.js";
 
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
