@@ -53,6 +53,18 @@ const TypingTest = () => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     setKey(e.key);
 
+    if (e.key === " ") {
+      e.preventDefault(); // Prevent scrolling when pressing space
+      setUserInput(userInput + " ");
+      setCurrentIndex(currentIndex + 1);
+      return;
+    }
+
+    if (e.key === "Tab") {
+      e.preventDefault(); // Prevent tab navigation
+      return;
+    }
+
     if (userInput.length === sampleText.length) {
       setComplete(true);
       return;
@@ -71,7 +83,7 @@ const TypingTest = () => {
 
   return (
     <div
-      className="flex flex-col border-none items-center justify-center   p-5"
+      className="flex flex-col outline-none focus:outline-none border-none items-center justify-center   p-5"
       tabIndex={0}
       onKeyDown={handleKeyPress}
     >

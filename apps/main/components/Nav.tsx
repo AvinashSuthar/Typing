@@ -29,7 +29,6 @@ const Nav = () => {
         },
         {
           name: "Github",
-
           link: "https://github.com/AvinashSuthar/Typing",
         },
       ]}
