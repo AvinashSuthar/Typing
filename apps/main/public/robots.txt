@@ -1,9 +1,3 @@
-# *
 User-agent: *
 Allow: /
-
-# Host
-Host: https://typing.avinashsuthar.in
-
-# Sitemaps
 Sitemap: https://typing.avinashsuthar.in/sitemap.xml
