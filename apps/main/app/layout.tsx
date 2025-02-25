@@ -5,7 +5,6 @@ import { ThemeProvider } from "@repo/ui/components/themeProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import Nav from "@/components/Nav";
-import { BackgroundLines } from "@repo/ui/components/ui/BackgroudAni";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

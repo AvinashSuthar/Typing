@@ -21,7 +21,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
   }, [keyValue]);
 
   return (
-    <div className="flex justify-center items-center h-[500px] my-16">
+    <div className="flex justify-center items-center h-[500px] my-16 ">
       <div className="keyboardcontainer">
         <div className="container">
           {/* First Row */}
@@ -44,7 +44,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
             ].map((keyvalue) => (
               <div
                 key={keyvalue}
-                className={`key ${pressedKey === keyvalue ? "blink" : ""}`}
+                className={`key shadow-[0px_2px_1px_rgba(255,255,255,0.5)] ${pressedKey === keyvalue ? "blink" : ""}`}
               >
                 {keyvalue.includes(".") ? (
                   keyvalue
@@ -79,7 +79,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
             ].map((keyvalue) => (
               <div
                 key={keyvalue}
-                className={`key ${pressedKey === keyvalue ? "blink" : ""}`}
+                className={`key shadow-[0px_2px_1px_rgba(255,255,255,0.5)] ${pressedKey?.toUpperCase() === keyvalue ? "blink" : ""}`}
               >
                 {keyvalue.includes("_") ? (
                   keyvalue
@@ -111,7 +111,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
             ].map((keyvalue) => (
               <div
                 key={keyvalue}
-                className={`key ${pressedKey === keyvalue ? "blink" : ""}`}
+                className={`key shadow-[0px_2px_1px_rgba(255,255,255,0.5)] ${pressedKey?.toUpperCase() === keyvalue ? "blink" : ""}`}
               >
                 {keyvalue.includes("_") ? (
                   keyvalue
@@ -142,7 +142,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
             ].map((keyvalue, index) => (
               <div
                 key={index}
-                className={`key ${pressedKey === keyvalue ? "blink" : ""}`}
+                className={`key shadow-[0px_2px_1px_rgba(255,255,255,0.5)] ${pressedKey?.toUpperCase() === keyvalue ? "blink" : ""}`}
               >
                 {keyvalue.includes("_") ? (
                   keyvalue
@@ -161,7 +161,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
               (keyvalue, index) => (
                 <div
                   key={index}
-                  className={`key ${pressedKey === keyvalue ? "blink" : ""}`}
+                  className={`key shadow-[0px_2px_1px_rgba(255,255,255,0.5)] ${pressedKey === keyvalue ? "blink" : ""}`}
                 >
                   <span>
                     {index === 2 ? (

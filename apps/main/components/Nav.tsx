@@ -27,6 +27,11 @@ const Nav = () => {
           name: "Blogs",
           link: "/blogs",
         },
+        {
+          name: "Github",
+
+          link: "https://github.com/AvinashSuthar/Typing",
+        },
       ]}
     />
   );

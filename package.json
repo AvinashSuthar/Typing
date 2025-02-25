@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@radix-ui/react-hover-card": "^1.1.6",
+    "aos": "^3.0.0-beta.6",
     "qss": "^3.0.0",
     "simplex-noise": "^4.0.3"
   }
