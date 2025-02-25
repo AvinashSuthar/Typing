@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://avinashsuthar.in
+Host: https://typing.avinashsuthar.in
 
 # Sitemaps
-Sitemap: https://avinashsuthar.in/sitemap.xml
+Sitemap: https://typing.avinashsuthar.in/sitemap.xml
