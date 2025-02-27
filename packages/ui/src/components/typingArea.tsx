@@ -6,7 +6,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { BackgroundBeamsWithCollision } from "./ui/BackgroudBeams";
 import { motion } from "framer-motion";
-const typingSound = new Audio("/sounds/key.mp3");
 
 const sampleText =
   "High know eye. These hand small know place, a plan group, keep we think because run may long if plan, child he have, even find since follow however.";
@@ -20,6 +19,7 @@ const TypingTest = () => {
   const [wpm, setWpm] = useState<number>(0);
   const [accuracy, setAccuracy] = useState<number>(100);
   const [key, setKey] = useState("");
+  const [typingSound, setTypingSound] = useState<any>(null);
 
   const typingAreaRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -44,6 +44,15 @@ const TypingTest = () => {
         : 100
     );
   }, [userInput]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Ensure it runs only in the browser
+      const sound = new Audio("/sounds/key.mp3");
+      sound.playbackRate = 1.5; // Adjust speed if needed
+      setTypingSound(sound);
+    }
+  }, []);
 
   useEffect(() => {
     AOS.init();
