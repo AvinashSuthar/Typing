@@ -19,7 +19,6 @@ const Votex = () => {
           words=" Type Fast, Type Smart, and Dominate the Keyboard!"
           className="text-base"
         />
-       
       </div>
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
         <div>

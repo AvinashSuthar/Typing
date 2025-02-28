@@ -4,11 +4,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Keyboard from "./Keyboard";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BackgroundBeamsWithCollision } from "./ui/BackgroudBeams";
 import { motion } from "framer-motion";
-
-const sampleText =
-  "High know eye. These hand small know place, a plan group, keep we think because run may long if plan, child he have, even find since follow however.";
+import { HeroHighlight } from "./ui/HeroHighlight";
+import { DropdownMenuRadioGroupDemo } from "./TestConfig";
+import {
+  getEasyPhrase,
+  getMediumPhrase,
+  getHardPhrase,
+} from "@repo/data/phrase";
 
 const TypingTest = () => {
   const [userInput, setUserInput] = useState<string>("");
@@ -20,6 +23,9 @@ const TypingTest = () => {
   const [accuracy, setAccuracy] = useState<number>(100);
   const [key, setKey] = useState("");
   const [typingSound, setTypingSound] = useState<any>(null);
+  const [difficulty, setDifficulty] = React.useState<string>("Easy");
+  const [time, setTime] = React.useState<string>("1");
+  const [text, setText] = useState<string>("");
 
   const typingAreaRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -34,7 +40,7 @@ const TypingTest = () => {
       setWpm(Math.round(wordsTyped / elapsedMinutes));
     }
 
-    const correctChars = sampleText
+    const correctChars = text
       .split("")
       .filter((char, index) => userInput[index] === char).length;
 
@@ -58,6 +64,20 @@ const TypingTest = () => {
     AOS.init();
   }, []);
 
+  const getData = (difficulty: string, time: string): string => {
+    let data = "";
+    if (difficulty === "Easy") {
+      data = getEasyPhrase(time);
+    }
+    if (difficulty === "Medium") {
+      data = getMediumPhrase(time);
+    }
+    if (difficulty === "Hard") {
+      data = getHardPhrase(time);
+    }
+    return data;
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (!start) return; // Only allow typing after starting the test
     typingSound.playbackRate = 1.5; // 1.5x speed
@@ -77,7 +97,7 @@ const TypingTest = () => {
       return;
     }
 
-    if (userInput.length === sampleText.length) {
+    if (userInput.length === text.length) {
       setComplete(true);
       return;
     }
@@ -93,6 +113,8 @@ const TypingTest = () => {
     setCurrentIndex(currentIndex + 1);
   };
   const startTest = () => {
+    setText(getData(difficulty, time));
+
     setStart(true);
     setUserInput("");
     setCurrentIndex(0);
@@ -102,22 +124,42 @@ const TypingTest = () => {
     setAccuracy(100);
 
     setTimeout(() => {
-      typingAreaRef.current?.focus(); // Give slight delay to ensure focus
+      typingAreaRef.current?.focus();
     }, 100);
   };
 
   return (
-    <div className="flex flex-col outline-none focus:outline-none border-none items-center justify-center p-5">
-      <BackgroundBeamsWithCollision>
-        <div className="w-[90%] p-6">
+    <HeroHighlight className="h-screen w-full">
+      <div className="flex flex-col  items-center justify-center">
+        <div className="">
           {/* Start Button */}
           {!start && (
-            <button
-              onClick={startTest}
-              className="px-6 py-2 mb-4 text-lg font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
-            >
-              Start Test
-            </button>
+            <div className="flex justify-around items-center gap-6">
+              <div>
+                <button
+                  onClick={startTest}
+                  className="px-6 py-2  text-lg font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 transition duration-300"
+                >
+                  Start Test
+                </button>
+              </div>
+
+              <div className="">
+                <DropdownMenuRadioGroupDemo
+                  time={time}
+                  setTime={setTime}
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
+                />
+              </div>
+            </div>
+          )}
+          {start && (
+            <div>
+              <button onClick={startTest}>
+                <img width={10} height={10} src="/restart.png" alt="restart" />
+              </button>
+            </div>
           )}
 
           {/* Typing Area */}
@@ -126,13 +168,13 @@ const TypingTest = () => {
               tabIndex={0}
               ref={typingAreaRef}
               onKeyDown={handleKeyPress}
-              className="text-gray-700 mt-48 text-justify rounded-md shadow-blue-400
+              className="text-gray-700  mt-48 text-justify  rounded-md shadow-blue-400 outline-none focus:outline-none border-none
               tracking-widest
               shadow-sm p-3 text-lg font-mono leading-8"
               data-aos="zoom-in-down"
               data-aos-duration="200"
             >
-              {sampleText.split("").map((char, index) => {
+              {text.split("").map((char, index) => {
                 const isTyped = index < currentIndex;
                 const isCorrect = userInput[index] === char;
                 const isCurrent = index === currentIndex;
@@ -166,19 +208,26 @@ const TypingTest = () => {
                   </motion.span>
                 );
               })}
-              <div className="flex justify-between text-sm text-gray-400 mt-3">
-                <span>WPM: {wpm}</span>
-                <span>Accuracy: {accuracy}%</span>
-              </div>
-              {complete && <div>Completed</div>}
+              {complete && (
+                <div>
+                  <div className="flex justify-between text-sm text-gray-400 mt-3">
+                    <span data-aos="fade-down">WPM: {wpm}</span>
+                    <span data-aos="fade-down">Accuracy: {accuracy}%</span>
+                  </div>
+                </div>
+              )}
+              <HeroHighlight>
+                <div className="">
+                  <div data-aos="fade-down" data-aos-duration="2000">
+                    <Keyboard keyValue={key} />
+                  </div>
+                </div>
+              </HeroHighlight>
             </div>
           )}
         </div>
-        <div data-aos="fade-down" data-aos-duration="2000">
-          <Keyboard keyValue={key} />
-        </div>
-      </BackgroundBeamsWithCollision>
-    </div>
+      </div>
+    </HeroHighlight>
   );
 };
 

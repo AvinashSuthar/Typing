@@ -25,8 +25,12 @@
   "dependencies": {
     "@radix-ui/react-hover-card": "^1.1.6",
     "aos": "^3.0.0-beta.6",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
+    "mini-svg-data-uri": "^1.4.4",
+    "motion": "^12.4.7",
     "qss": "^3.0.0",
-    "simplex-noise": "^4.0.3"
+    "simplex-noise": "^4.0.3",
+    "tailwind-merge": "^3.0.2"
   }
 }
