@@ -12,8 +12,9 @@ const Nav = () => {
       onNavigate={router.push}
       navItems={[
         {
-          name: "home",
+          name: "Home",
           link: "/",
+
         },
         {
           name: "About",

@@ -6,4 +6,4 @@ Allow: /
 Host: https://typing.avinashsuthar.in
 
 # Sitemaps
-Sitemap: https://typing.avinashsuthar.in/sitemap.xml
+Sitemap: https://typing.avinashsuthar.in/sitemap-typing.xml
