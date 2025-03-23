@@ -35,7 +35,7 @@ export default function RootLayout({
             <html lang="en" suppressHydrationWarning>
 
             <head>
-                <link rel="canonical" href="https://typing.avinashsuthar.in" />
+                <link rel="canonical" href="https://typing.avinashsuthar.in"/>
 
                 {/* JSON-LD Schema.org for SEO */}
                 <Script
@@ -74,7 +74,8 @@ export default function RootLayout({
                     }}
                 />
 
-                ̰
+                <meta name="robots" content="index, follow"/>
+
             </head>
 
 
