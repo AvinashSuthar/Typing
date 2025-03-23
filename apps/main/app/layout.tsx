@@ -50,6 +50,11 @@ export default function RootLayout({
                             url: "https://typing.avinashsuthar.in",
                             description: "Improve your typing speed with our free online typing test. Track progress, accuracy, and WPM.",
                             sameAs: [
+                                "https://www.typingtest.com",
+                                "https://www.speedtypingonline.com",
+                                "https://onlinetyping.org",
+                                "https://www.monkey-type.org",
+                                "https://monkeytype.com",
                                 "https://github.com/AvinashSuthar",
                                 "https://www.linkedin.com/in/avinash-suthar-970a56230",
                                 "https://www.instagram.com/avinashsutharr",
