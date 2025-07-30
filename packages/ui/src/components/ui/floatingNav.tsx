@@ -21,7 +21,7 @@ export const FloatingNav = ({
     icon?: JSX.Element;
   }[];
   className?: string;
-  modeToggle: JSX.Element;
+  modeToggle?: JSX.Element;
   signIn: JSX.Element;
   onNavigate: (link: string) => void;
 }) => {

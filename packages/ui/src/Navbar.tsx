@@ -18,7 +18,7 @@ const Navbar = ({
   return ( 
     <FloatingNav
       className="h-16" 
-      modeToggle={<ModeToggle />}
+
       navItems={navItems}
       signIn={signIn}
       onNavigate={onNavigate}

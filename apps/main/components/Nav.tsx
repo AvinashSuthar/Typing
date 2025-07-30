@@ -24,10 +24,7 @@ const Nav = () => {
           name: "Contact",
           link: "/contact",
         },
-        {
-          name: "Blogs",
-          link: "/blogs",
-        },
+        
         {
           name: "Github",
           link: "https://github.com/AvinashSuthar/Typing",
