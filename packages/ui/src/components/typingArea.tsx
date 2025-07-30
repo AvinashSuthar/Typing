@@ -51,16 +51,16 @@ const TypingTest = () => {
 
 
   const getData = (difficulty: string, time: string): string => {
-    let data = "lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-    // if (difficulty === "Easy") {
-    //   data = getEasyPhrase(time);
-    // }
-    // if (difficulty === "Medium") {
-    //   data = getMediumPhrase(time);
-    // }
-    // if (difficulty === "Hard") {
-    //   data = getHardPhrase(time);
-    // }
+    let data = ""
+    if (difficulty === "Easy") {
+      data = getEasyPhrase(time);
+    }
+    if (difficulty === "Medium") {
+      data = getMediumPhrase(time);
+    }
+    if (difficulty === "Hard") {
+      data = getHardPhrase(time);
+    }
     return data;
   };
 
