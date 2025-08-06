@@ -13,6 +13,7 @@
     "@clerk/nextjs": "^6.12.0",
     "@repo/data": "*",
     "@repo/ui": "*",
+    "axios": "^1.11.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "mini-svg-data-uri": "^1.4.4",
