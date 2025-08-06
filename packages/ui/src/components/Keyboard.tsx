@@ -21,7 +21,7 @@ export default function Keyboard({ keyValue }: KeyProps) {
   }, [keyValue]);
 
   return (
-    <div className="flex justify-center items-center h-[500px] my-16 ">
+    <div className="flex justify-center items-center h-[500px]  ">
       <div className="keyboardcontainer">
         <div className="container">
           {/* First Row */}

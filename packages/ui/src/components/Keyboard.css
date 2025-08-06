@@ -111,11 +111,11 @@
   color: white;
   scale: 0.9;
   font-size: large;
-  animation: blink-animation 0.8s ease-in-out;
+  animation: blink-animation 0.1s ease-in-out;
 }
 
 @keyframes blink-animation {
   50% {
-    background-color: #1c1a6a; /* Darker purple */
+    background-color: #ffffff; /* Darker purple */
   }
 }

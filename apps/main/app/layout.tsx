@@ -84,12 +84,11 @@ export default function RootLayout({
                 >
                     <ThemeProvider
                         attribute="class"
-                        defaultTheme="system"
+                        defaultTheme="dark"
                         enableSystem
                     // disableTransitionOnChange
                     >
                         <Nav />
-                        <div className="h-16 w-full"></div>
 
                         {children}
                     </ThemeProvider>
