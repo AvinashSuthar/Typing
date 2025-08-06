@@ -212,7 +212,7 @@ export default function Contact() {
                                     <Mail className="w-6 h-6 text-purple-400" />
                                     <div>
                                         <p className="text-white font-medium">Email</p>
-                                        <p className="text-gray-300">avinashsuthar@gmail.com</p>
+                                        <p className="text-gray-300">avinashsuthar.in@gmail.com</p>
                                     </div>
                                 </div>
 
